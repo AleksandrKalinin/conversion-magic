@@ -1,214 +1,211 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Javascript task 2 - Conversion magic</title>
-	<style type="text/css">
-		body{
-			margin: 0;
-			padding: 20px;
-			box-sizing: border-box;
-		}
+  <title>Javascript task 2 - Conversion magic</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-		.coersion-content__item{
-			display: flex;
-		}
+    .coersion-content__item {
+      display: flex;
+    }
 
-		.coersion-content__result{
-			font-weight: 700;
-			padding-left: 12px;
-		}
+    .coersion-content__result {
+      font-weight: 700;
+      padding-left: 12px;
+    }
 
-		.coersion-content__text{
-			display: flex;
-			width: 250px;
-		}
-	</style>
+    .coersion-content__text {
+      display: flex;
+      width: 250px;
+    }
+  </style>
 </head>
 <body>
-	<section>
-		<h2>Explicit type coersion</h2>
-		<div class="coersion-block">
-			<h3 class="">Number</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">Number('')</span><span class="coersion-content__result" id="expNumber1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Number('42')</span><span class="coersion-content__result" id="expNumber2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Number(true)</span><span class="coersion-content__result" id="expNumber3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Number(false)</span><span class="coersion-content__result" id="expNumber4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Number(null)</span><span class="coersion-content__result" id="expNumber5"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Number(undefined)</span><span class="coersion-content__result" id="expNumber6"></span></p>
-			</div>
-		</div>
-		<div class="coersion-block">
-			<h3 class="">String</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">String('42')</span><span class="coersion-content__result" id="expString1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">String(null)</span><span class="coersion-content__result" id="expString2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">String(undefined)</span><span class="coersion-content__result" id="expString3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">String(true)</span><span class="coersion-content__result" id="expString4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">String(false)</span><span class="coersion-content__result" id="expString5"></span></p>
-			</div>
-		</div>
-		<div class="coersion-block">
-			<h3 class="">Boolean</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean('')</span><span class="coersion-content__result" id="expBoolean1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(0)</span><span class="coersion-content__result" id="expBoolean2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(-0)</span><span class="coersion-content__result" id="expBoolean3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(true)</span><span class="coersion-content__result" id="expBoolean4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(false)</span><span class="coersion-content__result" id="expBoolean5"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(NaN)</span><span class="coersion-content__result" id="expBoolean6"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(null)</span><span class="coersion-content__result" id="expBoolean7"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">Boolean(undefined)</span><span class="coersion-content__result" id="expBoolean8"></span></p>				
-			</div>
-		</div>				
-	</section>
-	<section>
-		<h2>Implicit type coersion</h2>
-		<div class="coersion-block">
-			<h3 class="">String</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + 12</span><span class="coersion-content__result" id="impString1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + null;</span><span class="coersion-content__result" id="impString2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + undefined</span><span class="coersion-content__result" id="impString3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + {}</span><span class="coersion-content__result" id="impString4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + '12'</span><span class="coersion-content__result" id="impString5"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">'11' + NaN</span><span class="coersion-content__result" id="impString6"></span></p>				
-			</div>
-		</div>
-		<div class="coersion-block">
-			<h3 class="">Boolean</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">true + 12</span><span class="coersion-content__result" id="impBoolean1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">true + null;</span><span class="coersion-content__result" id="impBoolean2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">true + undefined</span><span class="coersion-content__result" id="impBoolean3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">true + {}</span><span class="coersion-content__result" id="impBoolean4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">true + '12'</span><span class="coersion-content__result" id="impBoolean5"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">true + NaN</span><span class="coersion-content__result" id="impBoolean6"></span></p>
-			</div>
-		</div>
-		<div class="coersion-block">
-			<h3 class="">Number</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + null;</span><span class="coersion-content__result" id="impNumber1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + undefined</span><span class="coersion-content__result" id="impNumber2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + {}</span><span class="coersion-content__result" id="impNumber3"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + '12'</span><span class="coersion-content__result" id="impNumber4"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + NaN</span><span class="coersion-content__result" id="impNumber5"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">11 + true</span><span class="coersion-content__result" id="impNumber6"></span></p>				
-			</div>
-		</div>
-		<div class="coersion-block">
-			<h3 class="">Null, undefined, NaN</h3>
-			<div class="coersion-block__content coersion-content">
-				<p class="coersion-content__item"><span class="coersion-content__text">NaN + undefined</span><span class="coersion-content__result" id="impVar1"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">NaN + null</span><span class="coersion-content__result" id="impVar2"></span></p>
-				<p class="coersion-content__item"><span class="coersion-content__text">null + undefined</span><span class="coersion-content__result" id="impVar3"></span></p>
-			</div>
-		</div>			
-	</section>	
-	<script type="text/javascript">
+  <section>
+    <h2>Explicit type coersion</h2>
+    <div class="coersion-block">
+      <h3 class="">Number</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">Number('')</span><span class="coersion-content__result" id="expNumber1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Number('42')</span><span class="coersion-content__result" id="expNumber2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Number(true)</span><span class="coersion-content__result" id="expNumber3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Number(false)</span><span class="coersion-content__result" id="expNumber4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Number(null)</span><span class="coersion-content__result" id="expNumber5"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Number(undefined)</span><span class="coersion-content__result" id="expNumber6"></span></p>
+      </div>
+    </div>
+    <div class="coersion-block">
+      <h3 class="">String</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">String('42')</span><span class="coersion-content__result" id="expString1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">String(null)</span><span class="coersion-content__result" id="expString2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">String(undefined)</span><span class="coersion-content__result" id="expString3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">String(true)</span><span class="coersion-content__result" id="expString4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">String(false)</span><span class="coersion-content__result" id="expString5"></span></p>
+      </div>
+    </div>
+    <div class="coersion-block">
+      <h3 class="">Boolean</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean('')</span><span class="coersion-content__result" id="expBoolean1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(0)</span><span class="coersion-content__result" id="expBoolean2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(-0)</span><span class="coersion-content__result" id="expBoolean3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(true)</span><span class="coersion-content__result" id="expBoolean4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(false)</span><span class="coersion-content__result" id="expBoolean5"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(NaN)</span><span class="coersion-content__result" id="expBoolean6"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(null)</span><span class="coersion-content__result" id="expBoolean7"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">Boolean(undefined)</span><span class="coersion-content__result" id="expBoolean8"></span></p>       
+      </div>
+    </div>        
+  </section>
+  <section>
+    <h2>Implicit type coersion</h2>
+    <div class="coersion-block">
+      <h3 class="">String</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + 12</span><span class="coersion-content__result" id="impString1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + null;</span><span class="coersion-content__result" id="impString2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + undefined</span><span class="coersion-content__result" id="impString3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + {}</span><span class="coersion-content__result" id="impString4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + '12'</span><span class="coersion-content__result" id="impString5"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">'11' + NaN</span><span class="coersion-content__result" id="impString6"></span></p>        
+      </div>
+    </div>
+    <div class="coersion-block">
+      <h3 class="">Boolean</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">true + 12</span><span class="coersion-content__result" id="impBoolean1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">true + null;</span><span class="coersion-content__result" id="impBoolean2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">true + undefined</span><span class="coersion-content__result" id="impBoolean3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">true + {}</span><span class="coersion-content__result" id="impBoolean4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">true + '12'</span><span class="coersion-content__result" id="impBoolean5"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">true + NaN</span><span class="coersion-content__result" id="impBoolean6"></span></p>
+      </div>
+    </div>
+    <div class="coersion-block">
+      <h3 class="">Number</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + null;</span><span class="coersion-content__result" id="impNumber1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + undefined</span><span class="coersion-content__result" id="impNumber2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + {}</span><span class="coersion-content__result" id="impNumber3"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + '12'</span><span class="coersion-content__result" id="impNumber4"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + NaN</span><span class="coersion-content__result" id="impNumber5"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">11 + true</span><span class="coersion-content__result" id="impNumber6"></span></p>       
+      </div>
+    </div>
+    <div class="coersion-block">
+      <h3 class="">Null, undefined, NaN</h3>
+      <div class="coersion-block__content coersion-content">
+        <p class="coersion-content__item"><span class="coersion-content__text">NaN + undefined</span><span class="coersion-content__result" id="impVar1"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">NaN + null</span><span class="coersion-content__result" id="impVar2"></span></p>
+        <p class="coersion-content__item"><span class="coersion-content__text">null + undefined</span><span class="coersion-content__result" id="impVar3"></span></p>
+      </div>
+    </div>      
+  </section>  
+  <script type="text/javascript">
+    //Explicit coercion variables
 
-		//Explicit coercion variables
+    let expNumber1 = Number('');
+    let expNumber2 = Number('42');
+    let expNumber3 = Number(true);
+    let expNumber4 = Number(false);
+    let expNumber5 = Number(null);
+    let expNumber6 = Number(undefined);
 
-		let expNumber1 = Number('');
-		let expNumber2 = Number('42');
-		let expNumber3 = Number(true);
-		let expNumber4 = Number(false);
-		let expNumber5 = Number(null);
-		let expNumber6 = Number(undefined);
+    let expString1 = String('42');
+    let expString2 = String(null);
+    let expString3 = String(undefined);
+    let expString4 = String(true);
+    let expString5 = String(false);
 
-		let expString1 = String('42');
-		let expString2 = String(null);
-		let expString3 = String(undefined);
-		let expString4 = String(true);
-		let expString5 = String(false);
+    let expBoolean1 = Boolean('');
+    let expBoolean2 = Boolean(0);
+    let expBoolean3 = Boolean(-0);
+    let expBoolean4 = Boolean(true);
+    let expBoolean5 = Boolean(false);   
+    let expBoolean6 = Boolean(NaN);
+    let expBoolean7 = Boolean(null);
+    let expBoolean8 = Boolean(undefined); 
 
-		let expBoolean1 = Boolean('');
-		let expBoolean2 = Boolean(0);
-		let expBoolean3 = Boolean(-0);
-		let expBoolean4 = Boolean(true);
-		let expBoolean5 = Boolean(false);		
-		let expBoolean6 = Boolean(NaN);
-		let expBoolean7 = Boolean(null);
-		let expBoolean8 = Boolean(undefined);	
+    //implicit coercion variables
 
-		//implicit coercion variables
+    let impString1 = '11' + 12;
+    let impString2 = '11' + null;
+    let impString3 = '11' + undefined;
+    let impString4 = '11' + {};
+    let impString5 = '11' + '12';
+    let impString6 = '11' + NaN;
 
-		let impString1 = '11' + 12;
-		let impString2 = '11' + null;
-		let impString3 = '11' + undefined;
-		let impString4 = '11' + {};
-		let impString5 = '11' + '12';
-		let impString6 = '11' + NaN;
+    let impBoolean1 = true + 12;
+    let impBoolean2 = true + null;
+    let impBoolean3 = true + undefined;
+    let impBoolean4 = true + {};
+    let impBoolean5 = true + '12';
+    let impBoolean6 = true + NaN;
 
-		let impBoolean1 = true + 12;
-		let impBoolean2 = true + null;
-		let impBoolean3 = true + undefined;
-		let impBoolean4 = true + {};
-		let impBoolean5 = true + '12';
-		let impBoolean6 = true + NaN;
+    let impNumber1 = 11 + null;
+    let impNumber2 = 11 + undefined;
+    let impNumber3 = 11 + {};
+    let impNumber4 = 11 + '12';
+    let impNumber5 = 11 + NaN;
+    let impNumber6 = 11 + true;
 
-		let impNumber1 = 11 + null;
-		let impNumber2 = 11 + undefined;
-		let impNumber3 = 11 + {};
-		let impNumber4 = 11 + '12';
-		let impNumber5 = 11 + NaN;
-		let impNumber6 = 11 + true;
+    let impVar1 = NaN + undefined;
+    let impVar2 = NaN + null;
+    let impVar3 = null + undefined;
 
-		let impVar1 = NaN + undefined;
-		let impVar2 = NaN + null;
-		let impVar3 = null + undefined;
+    document.getElementById('expNumber1').innerText = expNumber1;
+    document.getElementById('expNumber2').innerText = expNumber2;
+    document.getElementById('expNumber3').innerText = expNumber3;
+    document.getElementById('expNumber4').innerText = expNumber4;
+    document.getElementById('expNumber5').innerText = expNumber5;
+    document.getElementById('expNumber6').innerText = expNumber6;
 
+    document.getElementById('expString1').innerText = expString1;
+    document.getElementById('expString2').innerText = expString2;
+    document.getElementById('expString3').innerText = expString3;
+    document.getElementById('expString4').innerText = expString4;
+    document.getElementById('expString5').innerText = expString5;
 
-		document.getElementById('expNumber1').innerText = expNumber1;
-		document.getElementById('expNumber2').innerText = expNumber2;
-		document.getElementById('expNumber3').innerText = expNumber3;
-		document.getElementById('expNumber4').innerText = expNumber4;
-		document.getElementById('expNumber5').innerText = expNumber5;
-		document.getElementById('expNumber6').innerText = expNumber6;
+    document.getElementById('expBoolean1').innerText = expBoolean1;
+    document.getElementById('expBoolean2').innerText = expBoolean2;
+    document.getElementById('expBoolean3').innerText = expBoolean3;
+    document.getElementById('expBoolean4').innerText = expBoolean4;
+    document.getElementById('expBoolean5').innerText = expBoolean5;
+    document.getElementById('expBoolean6').innerText = expBoolean6;
+    document.getElementById('expBoolean7').innerText = expBoolean7;
+    document.getElementById('expBoolean8').innerText = expBoolean8;
 
-		document.getElementById('expString1').innerText = expString1;
-		document.getElementById('expString2').innerText = expString2;
-		document.getElementById('expString3').innerText = expString3;
-		document.getElementById('expString4').innerText = expString4;
-		document.getElementById('expString5').innerText = expString5;
+    document.getElementById('impString1').innerText = impString1;
+    document.getElementById('impString2').innerText = impString2;
+    document.getElementById('impString3').innerText = impString3;
+    document.getElementById('impString4').innerText = impString4;
+    document.getElementById('impString5').innerText = impString5;
+    document.getElementById('impString6').innerText = impString6;   
 
-		document.getElementById('expBoolean1').innerText = expBoolean1;
-		document.getElementById('expBoolean2').innerText = expBoolean2;
-		document.getElementById('expBoolean3').innerText = expBoolean3;
-		document.getElementById('expBoolean4').innerText = expBoolean4;
-		document.getElementById('expBoolean5').innerText = expBoolean5;
-		document.getElementById('expBoolean6').innerText = expBoolean6;
-		document.getElementById('expBoolean7').innerText = expBoolean7;
-		document.getElementById('expBoolean8').innerText = expBoolean8;
+    document.getElementById('impBoolean1').innerText = impBoolean1;
+    document.getElementById('impBoolean2').innerText = impBoolean2;
+    document.getElementById('impBoolean3').innerText = impBoolean3;
+    document.getElementById('impBoolean4').innerText = impBoolean4;
+    document.getElementById('impBoolean5').innerText = impBoolean5;
+    document.getElementById('impBoolean6').innerText = impBoolean6;
 
-		document.getElementById('impString1').innerText = impString1;
-		document.getElementById('impString2').innerText = impString2;
-		document.getElementById('impString3').innerText = impString3;
-		document.getElementById('impString4').innerText = impString4;
-		document.getElementById('impString5').innerText = impString5;
-		document.getElementById('impString6').innerText = impString6;		
+    document.getElementById('impNumber1').innerText = impNumber1;
+    document.getElementById('impNumber2').innerText = impNumber2;
+    document.getElementById('impNumber3').innerText = impNumber3;
+    document.getElementById('impNumber4').innerText = impNumber4;
+    document.getElementById('impNumber5').innerText = impNumber5;
+    document.getElementById('impNumber6').innerText = impNumber6;
 
-		document.getElementById('impBoolean1').innerText = impBoolean1;
-		document.getElementById('impBoolean2').innerText = impBoolean2;
-		document.getElementById('impBoolean3').innerText = impBoolean3;
-		document.getElementById('impBoolean4').innerText = impBoolean4;
-		document.getElementById('impBoolean5').innerText = impBoolean5;
-		document.getElementById('impBoolean6').innerText = impBoolean6;
+    //various
 
-		document.getElementById('impNumber1').innerText = impNumber1;
-		document.getElementById('impNumber2').innerText = impNumber2;
-		document.getElementById('impNumber3').innerText = impNumber3;
-		document.getElementById('impNumber4').innerText = impNumber4;
-		document.getElementById('impNumber5').innerText = impNumber5;
-		document.getElementById('impNumber6').innerText = impNumber6;
-
-		//various
-
-		document.getElementById('impVar1').innerText = impVar1;
-		document.getElementById('impVar2').innerText = impVar2;
-		document.getElementById('impVar3').innerText = impVar3;
-
-	</script>
+    document.getElementById('impVar1').innerText = impVar1;
+    document.getElementById('impVar2').innerText = impVar2;
+    document.getElementById('impVar3').innerText = impVar3;
+  </script>
 </body>
 </html>
